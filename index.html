@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaikarthik Mylapur - Multiverse Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:ital,wght@1,700&family=Montserrat:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Spot Theme Portals (Hidden in Dark Mode) -->
+    <div class="spot-portals">
+        <div class="portal p-1"></div>
+        <div class="portal p-2"></div>
+        <div class="portal p-3"></div>
+        <div class="portal p-4"></div>
+    </div>
+
+
+    <nav class="navbar">
+        <div class="logo-container">
+            <svg class="spider-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <filter id="spray" x="-20%" y="-20%" width="140%" height="140%">
+                        <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" result="noise" />
+                        <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G" />
+                    </filter>
+                </defs>
+                <g filter="url(#spray)" stroke="var(--text-color)" fill="none" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="50" cy="50" r="33" />
+                    <path d="M 46 32 L 46 28 L 54 28 L 54 32 Z" fill="var(--text-color)" stroke="none"/>
+                    <path d="M 40 45 C 45 30, 55 30, 60 45 C 65 65, 55 75, 50 75 C 45 75, 35 65, 40 45 Z" fill="var(--text-color)" stroke="none"/>
+                    <path d="M 45 35 C 38 15, 35 10, 35 0" />
+                    <path d="M 55 35 C 62 15, 65 10, 65 0" />
+                    <path d="M 40 45 C 20 40, 10 40, -5 50" />
+                    <path d="M 60 45 C 80 40, 90 40, 105 50" />
+                    <path d="M 38 60 C 20 65, 10 75, 15 95" />
+                    <path d="M 62 60 C 80 65, 90 75, 85 95" />
+                    <path d="M 44 70 C 40 85, 40 95, 42 110" />
+                    <path d="M 56 70 C 60 85, 60 95, 58 110" />
+                </g>
+            </svg>
+            <div class="logo">JK</div>
+        </div>
+        <div class="nav-links">
+            <a href="#home">HOME</a>
+            <a href="#about">ABOUT</a>
+            <a href="#projects">PROJECTS</a>
+            <a href="#skills">SKILLS</a>
+            <a href="#contact">CONTACT</a>
+        </div>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider round">
+                    <span class="label-dark">2099</span>
+                    <span class="label-light">SPOT</span>
+                </div>
+            </label>
+        </div>
+    </nav>
+
+    <main class="hero" id="home">
+        <p class="role-subtitle">// BACKEND & ML DEVELOPER</p>
+
+        <div class="glitch-wrapper" id="spidey-sense-container">
+            <h1 class="glitch" data-text="JAIKARTHIK MYLAPUR" id="glitch-name">
+                JAIKARTHIK MYLAPUR
+                <span class="scanlines" aria-hidden="true"></span>
+            </h1>
+        </div>
+        
+        <p class="description">
+            Building intelligent systems at the intersection of <span class="highlight-red">backend engineering</span> and <span class="highlight-red">machine learning</span> — from India 🇮🇳
+        </p>
+
+        <div class="cta-container">
+            <a href="#" class="btn btn-primary">VIEW PROJECTS</a>
+            <a href="#" class="btn btn-secondary">GET IN TOUCH</a>
+        </div>
+    </main>
+
+    <!-- MULTIVERSE COLLAGE LAYOUT -->
+    <div class="collage-container">
+        
+        <!-- ABOUT SECTION -->
+        <section id="about" class="collage-panel panel-tilted-left paper-style">
+            <div class="tape tape-top-center"></div>
+            <h2 class="panel-title">ABOUT_ME</h2>
+            <p>I'm a backend and machine learning engineer who loves building intelligent, scalable systems. When I'm not coding, I'm probably exploring the multiverse of technology.</p>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects" class="projects-section">
+            <h2 class="section-title">MY_PROJECTS</h2>
+            <div class="projects-grid">
+                <div class="collage-panel project-card panel-tilted-right comic-dark">
+                    <div class="tape tape-top-left"></div>
+                    <h3>Project Alpha</h3>
+                    <p>A scalable backend architecture handling millions of requests with zero downtime.</p>
+                    <a href="#" class="comic-btn">VIEW_CODE</a>
+                </div>
+                <div class="collage-panel project-card panel-tilted-left paper-style">
+                    <div class="tape tape-bottom-right"></div>
+                    <h3>Project Beta</h3>
+                    <p>Machine learning model that predicts future trends with high accuracy.</p>
+                    <a href="#" class="comic-btn">VIEW_CODE</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section id="skills" class="skills-section">
+            <h2 class="section-title">SKILLS_&_TECH</h2>
+            <div class="skills-scatter">
+                <span class="skill-sticker rot-1">Python</span>
+                <span class="skill-sticker rot-2">Node.js</span>
+                <span class="skill-sticker rot-3">TensorFlow</span>
+                <span class="skill-sticker rot-4">AWS</span>
+                <span class="skill-sticker rot-5">PostgreSQL</span>
+                <span class="skill-sticker rot-1">Docker</span>
+                <span class="skill-sticker rot-3">Redis</span>
+                <span class="skill-sticker rot-2">Git</span>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="collage-panel panel-tilted-right comic-dark">
+            <div class="tape tape-top-right"></div>
+            <h2 class="panel-title">TRANSMIT_MESSAGE</h2>
+            <p>Let's collaborate on something amazing across the dimensions. Reach out and let's build the future.</p>
+            <a href="#" class="btn btn-primary" style="margin-top: 20px;">PING ME</a>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
