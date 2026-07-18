@@ -23,6 +23,58 @@ themeSwitch.addEventListener('change', () => {
     }
 });
 
+// TERMINAL LOGIC
+const termInput = document.getElementById('term-input');
+const termOutput = document.getElementById('terminal-output');
+const termBody = document.getElementById('terminal-body');
+
+const commands = {
+    'help': 'Available commands: <br>- <span class="term-cmd">whoami</span>: Display bio<br>- <span class="term-cmd">education</span>: Display background<br>- <span class="term-cmd">projects</span>: Access project database<br>- <span class="term-cmd">skills</span>: List technical skills<br>- <span class="term-cmd">contact</span>: Show transmission info<br>- <span class="term-cmd">clear</span>: Clear terminal<br>- <span class="term-cmd">venom</span>: ???',
+    'whoami': 'Jaikarthik Mylapur.<br>Backend & Machine Learning Engineer.<br>Specialty: Building scalable systems and intelligent models.',
+    'education': 'Status: Exploring the multiverse of technology.<br>Location: Earth-1218 (India).',
+    'projects': 'LOADING MULTIVERSE PROJECTS...<br>1. <span class="term-cmd">Project Alpha</span>: Scalable backend architecture.<br>2. <span class="term-cmd">Project Beta</span>: Predictive ML model.',
+    'skills': 'SYSTEM CAPABILITIES:<br>Python, Node.js, TensorFlow, AWS, PostgreSQL, Docker, Redis, Git.',
+    'contact': 'ESTABLISHING CONNECTION...<br>Let\'s collaborate on something amazing.<br>Ping me at: <span class="term-cmd">jaikarthik@spider-os.net</span>',
+    'venom': 'WE ARE VENOM.',
+    'clear': ''
+};
+
+if (termInput) {
+    termInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            const inputVal = this.value.trim().toLowerCase();
+            this.value = '';
+            
+            if (inputVal === '') return;
+
+            // Echo the command
+            const echoLine = document.createElement('div');
+            echoLine.className = 'term-line';
+            echoLine.innerHTML = `<span class="term-prompt">guest@jaikarthik-os:~$</span> ${inputVal}`;
+            termOutput.appendChild(echoLine);
+
+            // Process command
+            if (inputVal === 'clear') {
+                termOutput.innerHTML = '';
+            } else if (inputVal === 'venom') {
+                document.body.classList.toggle('venom-mode');
+                const resLine = document.createElement('div');
+                resLine.className = 'term-line';
+                resLine.innerHTML = document.body.classList.contains('venom-mode') ? commands['venom'] : 'SYMBIOTE DETACHED.';
+                termOutput.appendChild(resLine);
+            } else {
+                const resLine = document.createElement('div');
+                resLine.className = 'term-line';
+                resLine.innerHTML = commands[inputVal] || `Command not found: ${inputVal}. Type <span class="term-cmd">help</span> for a list of commands.`;
+                termOutput.appendChild(resLine);
+            }
+
+            // Scroll to bottom
+            termBody.scrollTop = termBody.scrollHeight;
+        }
+    });
+}
+
 // Intro Font Glitch Effect on Page Load
 const fonts = [
     '"Space Mono", monospace',

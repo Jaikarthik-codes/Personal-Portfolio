@@ -83,11 +83,26 @@
     <!-- MULTIVERSE COLLAGE LAYOUT -->
     <div class="collage-container">
         
-        <!-- ABOUT SECTION -->
-        <section id="about" class="collage-panel panel-tilted-left paper-style">
+        <!-- ABOUT SECTION (TERMINAL) -->
+        <section id="about" class="collage-panel panel-tilted-left comic-dark terminal-panel">
             <div class="tape tape-top-center"></div>
-            <h2 class="panel-title">ABOUT_ME</h2>
-            <p>I'm a backend and machine learning engineer who loves building intelligent, scalable systems. When I'm not coding, I'm probably exploring the multiverse of technology.</p>
+            <div class="terminal-header">
+                <div class="term-btn term-close"></div>
+                <div class="term-btn term-min"></div>
+                <div class="term-btn term-max"></div>
+                <div class="term-title">jaikarthik@spider-os ~</div>
+            </div>
+            <div class="terminal-body" id="terminal-body" onclick="document.getElementById('term-input').focus()">
+                <div id="terminal-output">
+                    <div class="term-line">INITIALIZING MULTIVERSE PROTOCOLS...</div>
+                    <div class="term-line">CONNECTION SECURE.</div>
+                    <div class="term-line"><br>Welcome to Jaikarthik's Database. Type <span class="term-cmd">help</span> to begin.</div>
+                </div>
+                <div class="terminal-input-line">
+                    <span class="term-prompt">guest@jaikarthik-os:~$</span>
+                    <input type="text" id="term-input" class="term-input" autocomplete="off" spellcheck="false" autofocus>
+                </div>
+            </div>
         </section>
 
         <!-- PROJECTS SECTION -->
@@ -129,7 +144,7 @@
             <div class="tape tape-top-right"></div>
             <h2 class="panel-title">TRANSMIT_MESSAGE</h2>
             <p>Let's collaborate on something amazing across the dimensions. Reach out and let's build the future.</p>
-            <a href="#" class="btn btn-primary" style="margin-top: 20px;">PING ME</a>
+            <a href="#" class="comic-btn" style="margin-top: 20px;">PING ME</a>
         </section>
 
     </div>
