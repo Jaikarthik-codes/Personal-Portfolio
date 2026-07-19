@@ -208,6 +208,7 @@ input:checked + .slider:before { transform: translateX(60px); background-color: 
 .collage-container {
     max-width: 1200px; margin: 0 auto; padding: 100px 20px 200px 20px;
     display: flex; flex-direction: column; gap: 120px;
+    position: relative; z-index: 2; /* Keep content above background portals */
 }
 
 .collage-panel {
@@ -354,26 +355,7 @@ body.venom-mode .glitch {
 }
 body.venom-mode .role-subtitle { color: #fff !important; }
 
-/* Multiverse Particles */
-.particles-container {
-    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-    pointer-events: none; overflow: hidden; z-index: -5;
-}
-.particle {
-    position: absolute;
-    width: var(--size); height: var(--size);
-    background: var(--color);
-    opacity: 0.5;
-    border-radius: 20%; 
-    animation: float-particle var(--duration) linear infinite;
-    filter: blur(2px);
-}
-@keyframes float-particle {
-    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-    10% { opacity: 0.6; }
-    90% { opacity: 0.6; }
-    100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
-}
+
 
 /* Terminal Anomaly */
 .terminal-glitch-anim {
@@ -386,4 +368,168 @@ body.venom-mode .role-subtitle { color: #fff !important; }
     60% { transform: translate(5px, 5px); filter: hue-rotate(180deg); }
     80% { transform: translate(5px, -5px); filter: invert(0); }
     100% { transform: translate(0); filter: hue-rotate(0deg); }
+}
+
+/* TITLE GLITCH */
+.title-glitch {
+    position: relative;
+    animation: glitch-shake 3s infinite;
+}
+.title-glitch::before, .title-glitch::after {
+    content: attr(data-text);
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+}
+.title-glitch::before {
+    left: 2px; text-shadow: -2px 0 var(--glitch-red); animation: glitch-anim-1 2s infinite linear alternate-reverse;
+}
+.title-glitch::after {
+    left: -2px; text-shadow: 2px 0 var(--glitch-blue); animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+/* WEB SHOOTER CLICK CONFETTI */
+.web-confetti {
+    position: fixed; width: 2px; height: 12px; background: #fff;
+    pointer-events: none; z-index: 99997;
+    transform: translate(-50%, -50%) rotate(0deg);
+    animation: web-fall 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+[data-theme="spot"] .web-confetti { background: #000; }
+@keyframes web-fall {
+    0% { transform: translate(-50%, -50%) rotate(0deg); opacity: 1; }
+    50% { opacity: 1; }
+    100% { transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) rotate(var(--rot)); opacity: 0; }
+}
+
+/* LAYOUT FIXES FOR SECTION WRAPPERS */
+.about-section, .contact-section {
+    display: flex; flex-direction: column; width: 100%; align-items: center;
+}
+
+/* PROJECT CARD DANGER SENSE */
+.project-card:hover {
+    animation: danger-shake 0.3s infinite;
+    box-shadow: 0 0 20px rgba(255,0,0,0.5), inset 0 0 10px rgba(255,0,0,0.3) !important;
+    border-color: var(--glitch-red) !important;
+}
+@keyframes danger-shake {
+    0%, 100% { transform: scale(1.02) translate(0, 0) rotate(0deg); }
+    25% { transform: scale(1.02) translate(-2px, 2px) rotate(-1deg); }
+    50% { transform: scale(1.02) translate(2px, -2px) rotate(1deg); }
+    75% { transform: scale(1.02) translate(-2px, -2px) rotate(-1deg); }
+}
+
+/* CONTACT TRANSMISSION */
+.transmission-box { min-height: 150px; display: flex; align-items: center; justify-content: center; }
+.decrypt-btn { 
+    font-family: 'Space Mono', monospace; font-weight: bold; color: var(--glitch-red); 
+    cursor: pointer; text-shadow: 0 0 5px var(--glitch-red); animation: pulse-text 1.5s infinite; 
+    text-align: center;
+}
+.decrypt-btn:hover { color: #fff; text-shadow: 0 0 10px #fff; }
+[data-theme="spot"] .decrypt-btn:hover { color: #000; text-shadow: 0 0 10px #000; }
+.transmission-box .hidden { display: none; }
+@keyframes pulse-text { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+    /* Spot portals scale down */
+    .p-1 { width: 150px; height: 175px; top: -50px; left: -25px; }
+    .p-2 { width: 100px; height: 90px; bottom: 5%; right: 5%; }
+    .p-3 { width: 75px; height: 75px; top: 10%; right: -25px; }
+    .p-4 { width: 200px; height: 50px; bottom: -20px; left: 10%; }
+    body {
+        overflow-x: hidden;
+    }
+    .navbar {
+        flex-direction: column;
+        padding: 15px 10px;
+        gap: 10px;
+    }
+    .nav-links {
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .nav-links a {
+        font-size: 0.75rem;
+    }
+    .hero {
+        padding-top: 120px;
+    }
+    .glitch {
+        font-size: clamp(2rem, 10vw, 3.5rem);
+        white-space: normal; /* Fix horizontal overflow */
+        word-wrap: break-word;
+        line-height: 1.1;
+    }
+    .role-subtitle {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+    }
+    .description {
+        font-size: 0.95rem;
+    }
+    .cta-container {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        max-width: 250px;
+    }
+    .btn {
+        width: 100%;
+        font-size: 0.9rem;
+        padding: 12px 20px;
+    }
+    .collage-container {
+        gap: 40px;
+        padding-top: 50px;
+        padding-bottom: 80px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .collage-panel {
+        transform: rotate(0) !important;
+        margin: 0;
+        padding: 20px;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    .terminal-panel {
+        height: 500px;
+    }
+    .terminal-input-line {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .term-prompt {
+        margin-bottom: 5px;
+    }
+    .projects-grid {
+        gap: 30px;
+    }
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+    .panel-title {
+        font-size: 2rem;
+    }
+    .skill-sticker {
+        padding: 6px 12px;
+        font-size: 1rem;
+        transform: rotate(0) !important;
+    }
+    .skill-sticker:hover {
+        transform: scale(1.05) !important;
+    }
+    .tape {
+        transform: translateX(-50%) rotate(0deg) !important;
+        left: 50% !important;
+        right: auto !important;
+        top: -10px !important;
+        bottom: auto !important;
+        width: 100px;
+        height: 25px;
+    }
 }

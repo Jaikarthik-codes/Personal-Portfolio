@@ -185,28 +185,6 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Multiverse Particles
-const particlesContainer = document.createElement('div');
-particlesContainer.className = 'particles-container';
-document.body.appendChild(particlesContainer);
-
-for (let i = 0; i < 40; i++) {
-    const p = document.createElement('div');
-    p.className = 'particle';
-    const size = Math.random() * 15 + 5;
-    const duration = Math.random() * 10 + 20; // Slower for full page
-    const left = Math.random() * 100;
-    const color = Math.random() > 0.5 ? 'var(--glitch-red)' : 'var(--glitch-blue)';
-    
-    p.style.setProperty('--size', `${size}px`);
-    p.style.setProperty('--duration', `${duration}s`);
-    p.style.setProperty('--color', color);
-    p.style.left = `${left}%`;
-    p.style.animationDelay = `-${Math.random() * 20}s`;
-    
-    particlesContainer.appendChild(p);
-}
-
 // Random Terminal Anomaly Glitch
 const terminalPanel = document.querySelector('.terminal-panel');
 if (terminalPanel) {
@@ -218,4 +196,51 @@ if (terminalPanel) {
             }, 200);
         }
     }, 8000);
+}
+
+// Web Shooter Click Effect (Confetti)
+document.addEventListener('mousedown', (e) => {
+    // Prevent spawning if clicking on interactive elements
+    if (e.target.closest('button') || e.target.closest('a') || e.target.closest('.terminal-panel') || e.target.closest('.theme-switch-wrapper') || e.target.closest('.decrypt-btn')) return;
+
+    const numConfetti = 8;
+    for (let i = 0; i < numConfetti; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'web-confetti';
+        confetti.style.left = e.clientX + 'px';
+        confetti.style.top = e.clientY + 'px';
+        
+        // Random trajectory
+        const angle = Math.random() * Math.PI * 2;
+        const velocity = 50 + Math.random() * 100;
+        const tx = Math.cos(angle) * velocity;
+        const ty = Math.sin(angle) * velocity - 50; // Bias upward slightly before falling
+        const rot = Math.random() * 360;
+        
+        confetti.style.setProperty('--tx', `${tx}px`);
+        confetti.style.setProperty('--ty', `${ty}px`);
+        confetti.style.setProperty('--rot', `${rot}deg`);
+        
+        document.body.appendChild(confetti);
+
+        setTimeout(() => {
+            confetti.remove();
+        }, 600); // Wait for animation to finish
+    }
+});
+
+// Contact Transmission Reveal
+const decryptBtn = document.getElementById('contact-decrypt-btn');
+const contactInfo = document.getElementById('contact-info');
+if (decryptBtn && contactInfo) {
+    decryptBtn.addEventListener('click', () => {
+        decryptBtn.style.display = 'none';
+        contactInfo.classList.remove('hidden');
+        
+        // Add a quick glitch animation on reveal
+        contactInfo.classList.add('terminal-glitch-anim');
+        setTimeout(() => {
+            contactInfo.classList.remove('terminal-glitch-anim');
+        }, 300);
+    });
 }
