@@ -210,11 +210,11 @@ document.addEventListener('mousedown', (e) => {
         confetti.style.left = e.clientX + 'px';
         confetti.style.top = e.clientY + 'px';
         
-        // Random trajectory
+        // Random trajectory (less scattered)
         const angle = Math.random() * Math.PI * 2;
-        const velocity = 50 + Math.random() * 100;
+        const velocity = 20 + Math.random() * 40; // Reduced from 50+100
         const tx = Math.cos(angle) * velocity;
-        const ty = Math.sin(angle) * velocity - 50; // Bias upward slightly before falling
+        const ty = Math.sin(angle) * velocity - 20; // Bias upward slightly before falling
         const rot = Math.random() * 360;
         
         confetti.style.setProperty('--tx', `${tx}px`);
