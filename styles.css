@@ -24,6 +24,11 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+}
+
 body {
     background-color: var(--bg-color); color: var(--text-color);
     font-family: 'Montserrat', sans-serif; overflow-x: hidden;
@@ -105,10 +110,12 @@ body::after { right: -15vw; background: var(--glitch-blue); }
 .slider:before { background-color: var(--glitch-red); bottom: 3px; content: ""; height: 20px; left: 3px; position: absolute; transition: .4s; width: 50px; border-radius: 20px; z-index: 1; }
 input:checked + .slider:before { transform: translateX(60px); background-color: var(--glitch-blue); }
 
-/* HERO */
+/* HERO SECTION */
 .hero {
-    height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
-    position: relative; padding: 0 20px; text-align: center; z-index: 10;
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+    position: relative; padding-top: 60px; z-index: 10;
+    scroll-snap-align: start;
 }
 
 .role-subtitle { font-family: 'Space Mono', monospace; color: var(--accent); letter-spacing: 5px; margin-bottom: 10px; font-weight: bold; position: relative;}
@@ -204,10 +211,22 @@ input:checked + .slider:before { transform: translateX(60px); background-color: 
     7% { text-shadow: -5px -2px 0 var(--glitch-red), 4px 2px 0 var(--glitch-blue); }
 }
 
+/* FULLSCREEN SECTIONS */
+.fullscreen-section {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+    padding: 60px 20px; /* space for navbar */
+}
+
 /* COLLAGE SECTIONS */
 .collage-container {
-    max-width: 1200px; margin: 0 auto; padding: 100px 20px 200px 20px;
-    display: flex; flex-direction: column; gap: 120px;
+    max-width: 1200px; margin: 0 auto;
+    display: flex; flex-direction: column;
     position: relative; z-index: 2; /* Keep content above background portals */
 }
 
@@ -405,10 +424,7 @@ body.venom-mode .role-subtitle { color: #fff !important; }
     100% { transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) rotate(var(--rot)); opacity: 0; }
 }
 
-/* LAYOUT FIXES FOR SECTION WRAPPERS */
-.about-section, .contact-section {
-    display: flex; flex-direction: column; width: 100%; align-items: center;
-}
+
 
 /* PROJECT CARD DANGER SENSE */
 .project-card:hover {
