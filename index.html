@@ -65,23 +65,31 @@
         <!-- ABOUT SECTION (TERMINAL) -->
         <section id="about" class="about-section fullscreen-section">
             <h2 class="section-title title-glitch" data-text="ABOUT_ME">ABOUT_ME</h2>
-            <div class="collage-panel panel-tilted-left comic-dark terminal-panel">
-                <div class="tape tape-top-center"></div>
-                <div class="terminal-header">
-                    <div class="term-btn term-close"></div>
-                    <div class="term-btn term-min"></div>
-                    <div class="term-btn term-max"></div>
-                    <div class="term-title">jaikarthik@spider-os ~</div>
+            <div class="about-grid">
+                <div class="collage-panel panel-tilted-right paper-style bio-panel">
+                    <div class="tape tape-top-left"></div>
+                    <h3 class="panel-title">Who am I?</h3>
+                    <p class="bio-text">I'm a Backend and Machine Learning Engineer who accidentally stepped into a collider. Now, I write scalable architectures across multiple dimensions. When I'm not fighting multiversal bugs, I'm exploring deep learning and optimizing high-throughput systems.</p>
                 </div>
-            <div class="terminal-body" id="terminal-body" onclick="document.getElementById('term-input').focus()">
-                <div id="terminal-output">
-                    <div class="term-line">INITIALIZING MULTIVERSE PROTOCOLS...</div>
-                    <div class="term-line">CONNECTION SECURE.</div>
-                    <div class="term-line"><br>Welcome to Jaikarthik's Database. Type <span class="term-cmd">help</span> to begin.</div>
-                </div>
-                <div class="terminal-input-line">
-                    <span class="term-prompt">guest@jaikarthik-os:~$</span>
-                    <input type="text" id="term-input" class="term-input" autocomplete="off" spellcheck="false">
+                <div class="collage-panel panel-tilted-left comic-dark terminal-panel">
+                    <div class="tape tape-top-center"></div>
+                    <div class="terminal-header">
+                        <div class="term-btn term-close"></div>
+                        <div class="term-btn term-min"></div>
+                        <div class="term-btn term-max"></div>
+                        <div class="term-title">jaikarthik@spider-os ~</div>
+                    </div>
+                    <div class="terminal-body" id="terminal-body" onclick="document.getElementById('term-input').focus()">
+                        <div id="terminal-output">
+                            <div class="term-line">INITIALIZING MULTIVERSE PROTOCOLS...</div>
+                            <div class="term-line">CONNECTION SECURE.</div>
+                            <div class="term-line"><br>Welcome to Jaikarthik's Database. Type <span class="term-cmd">help</span> to begin.</div>
+                        </div>
+                        <div class="terminal-input-line">
+                            <span class="term-prompt">guest@jaikarthik-os:~$</span>
+                            <input type="text" id="term-input" class="term-input" autocomplete="off" spellcheck="false">
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -108,21 +116,39 @@
                     <p>Embedded systems software providing fluid dynamics control and synthetic webbing synthesis UI.</p>
                     <a href="#" class="comic-btn">VIEW_CODE</a>
                 </div>
+                <div class="collage-panel project-card panel-tilted-left paper-style">
+                    <div class="tape tape-bottom-left"></div>
+                    <h3>Multiversal Collider</h3>
+                    <p>Physics simulation engine built in Python to calculate particle collision trajectories across alternate realities.</p>
+                    <a href="#" class="comic-btn">VIEW_CODE</a>
+                </div>
             </div>
         </section>
 
         <!-- SKILLS SECTION -->
         <section id="skills" class="skills-section fullscreen-section">
             <h2 class="section-title title-glitch" data-text="SKILLS_&_TECH">SKILLS_&_TECH</h2>
-            <div class="skills-scatter">
-                <span class="skill-sticker rot-1">Python</span>
-                <span class="skill-sticker rot-2">Node.js</span>
-                <span class="skill-sticker rot-3">TensorFlow</span>
-                <span class="skill-sticker rot-4">AWS</span>
-                <span class="skill-sticker rot-5">PostgreSQL</span>
-                <span class="skill-sticker rot-1">Docker</span>
-                <span class="skill-sticker rot-3">Redis</span>
-                <span class="skill-sticker rot-2">Git</span>
+            <div class="skills-list">
+                <div class="skill-bar-container">
+                    <div class="skill-info"><span class="skill-name">Python</span> <span class="skill-level">PRO</span></div>
+                    <div class="skill-track"><div class="skill-fill" style="width: 95%;"></div></div>
+                </div>
+                <div class="skill-bar-container">
+                    <div class="skill-info"><span class="skill-name">Node.js</span> <span class="skill-level">PRO</span></div>
+                    <div class="skill-track"><div class="skill-fill" style="width: 90%;"></div></div>
+                </div>
+                <div class="skill-bar-container">
+                    <div class="skill-info"><span class="skill-name">Machine Learning</span> <span class="skill-level">INTERMEDIATE</span></div>
+                    <div class="skill-track"><div class="skill-fill" style="width: 75%;"></div></div>
+                </div>
+                <div class="skill-bar-container">
+                    <div class="skill-info"><span class="skill-name">Docker / AWS</span> <span class="skill-level">INTERMEDIATE</span></div>
+                    <div class="skill-track"><div class="skill-fill" style="width: 80%;"></div></div>
+                </div>
+                <div class="skill-bar-container">
+                    <div class="skill-info"><span class="skill-name">React</span> <span class="skill-level">BEGINNER</span></div>
+                    <div class="skill-track"><div class="skill-fill" style="width: 40%;"></div></div>
+                </div>
             </div>
         </section>
 
