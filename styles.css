@@ -26,7 +26,6 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-snap-type: y mandatory;
 }
 
 body {
@@ -115,7 +114,6 @@ input:checked + .slider:before { transform: translateX(60px); background-color: 
     min-height: 100vh;
     display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
     position: relative; padding-top: 60px; z-index: 10;
-    scroll-snap-align: start;
 }
 
 .role-subtitle { font-family: 'Space Mono', monospace; color: var(--accent); letter-spacing: 5px; margin-bottom: 10px; font-weight: bold; position: relative;}
@@ -219,7 +217,6 @@ input:checked + .slider:before { transform: translateX(60px); background-color: 
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    scroll-snap-align: start;
     padding: 60px 20px; /* space for navbar */
 }
 
